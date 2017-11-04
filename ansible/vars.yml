@@ -1,0 +1,91 @@
+---
+
+# Django Secret Key
+# This is a hash needed for every django project. It must be protected
+# so it's a good idea to change it if this repository goes public
+# You can generate a new key on this site: http://www.miniwebtool.com/django-secret-key-generator/
+secret_key: "0000000000000000000000000"
+
+# Application Name
+# This is the name of the application, used to differentiate the path where the 
+# WaMDaM code is stored, from other applications deployed on the same instance
+app_name: "wamdam1"
+
+# Clone Location
+# This is the path on the EC2 instance where the applications code is cloned
+# This path should be consistent between applications that would be deployed 
+# on the same instance, so if you change this value on this playbook you must
+# set the same exact value on other playbooks 'clone_location' variable
+clone_location: "/home/ubuntu/env"
+
+# Excel Location
+# Location where the excel spreadsheets should be placed in order to be accessible 
+# by the application containers
+excel_location: "/home/ubuntu/spreadsheets"
+
+# Static Root
+# Path where the static files are placed to be served by nginx
+static_root: "/srv/static"
+
+# Project Repository
+# This is the URL of this same repository with the username and password
+# You must replace "<github-username>" and "<github-passwd>" with your
+# actual username and password for github, to allow this project to be 
+# cloned from the ec2 instance
+project_repo: https://<github-username>:<github-passwd>@https://github.com/WamdamProject/WaMDaM_ControlledVocabularies.git
+
+# Wamdam credentials for the MySQL database container
+wamdam_db_name: ******
+wamdam_db_user: *********
+wamdam_db_password: ******
+
+# MySQL root password. 
+# You will be asked for this password when you run commands
+# to backup or recover the database from the database_container
+# follow this link for more information:
+# https://github.com/amabdallah/WaMDaMCVs#backup-and-restore-the-database-containers
+mysql_root_passwd: "root"
+
+# Wamdam Django admin credentials
+# You should use this credentials when you login as admin into the WaMDaM web 
+# application to manage vocabularies requests. This admin user is created
+# automatically the first time you deploy this application
+wamdam_admin_user: abcd
+wamdam_admin_email: abcd.usu.edu
+wamdam_admin_pass: abcd!!
+
+# Credentials of the email account used to configure the SMTP server 
+email_host_user: 'abcd@gmail.com'
+email_host_password: 'ABCD#!'
+
+# Email that will appear as the sender when CVs are added and accepted
+email_sender: "abcd.usu.edu"
+
+# List of emails that will receive a notification when a CV has been added and need approval
+email_recipients: "abcd.usu.edu"
+
+# Google recaptcha keys
+# Secret key given by the google captcha service
+wamdam_recaptcha_secret_key: "*************************"
+
+# User key given by the google captcha service
+wamdam_recaptcha_user_key: "**********************"
+
+# Wamdam Container Name
+# This is the name of the application container. It is referenced on the "files/nginx.j2" 
+# template to help the webserver figure out how to reach the container and forward 
+# the requests for the valid DNS names
+wamdam_container: wamdam1
+
+# Wamdam Databse Container Name
+# This is name of the database container. It is referenced on the "deploy.yml" file
+# to relate the application and the database container
+wamdam_db_container: wamdam1_db
+
+# Wamdam Allowed Hosts
+# A list of sub-domanin names for the WaMDaM application. 
+# These are the names that the application will be redirected to when nginx receives a request
+# Also this are the only names the django application is going to answer to
+wamdam_allowed_hosts: "vocabulary.wamdam.org localhost"
+
+# vim:ft=ansible:

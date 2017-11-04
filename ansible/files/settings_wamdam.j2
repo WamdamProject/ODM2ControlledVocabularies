@@ -1,0 +1,31 @@
+{
+  "allowed_hosts" : "{{wamdam_allowed_hosts}}",
+  "secret_key": "{{secret_key}}",
+  "static_root": "{{static_root}}",
+  "email_sender": "{{email_sender}}",
+  "email_recipients": "{{email_recipients}}",
+  "email_host_user": "{{email_host_user}}",
+  "email_host_password": "{{email_host_password}}",
+  "recaptcha_secret_key": "{{wamdam_recaptcha_secret_key}}",
+  "recaptcha_user_key": "{{wamdam_recaptcha_user_key}}",
+  "databases": [
+    {
+      "name": "default",
+      "schema": "{{wamdam_db_name}}",
+      "engine": "django.db.backends.mysql",
+      "user": "{{wamdam_db_user}}",
+      "password": "{{wamdam_db_password}}",
+      "host": "{{wamdam_db_container}}",
+      "port": "3306"
+    },
+    {
+      "name": "vocabularies",
+      "schema": "{{wamdam_db_name}}",
+      "engine": "django.db.backends.mysql",
+      "user": "{{wamdam_db_user}}",
+      "password": "{{wamdam_db_password}}",
+      "host": "{{wamdam_db_container}}",
+      "port": "3306"
+    }
+  ]
+}
