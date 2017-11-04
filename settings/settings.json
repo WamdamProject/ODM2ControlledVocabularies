@@ -1,0 +1,28 @@
+{
+  "secret_key": "",
+  "static_root": "",
+  "email_sender": "",
+  "email_recipients": "",
+  "recaptcha_secret_key": "",
+  "recaptcha_user_key": "",
+  "databases": [
+    {
+      "name": "",
+      "schema": "",
+      "engine": "django.db.backends.mysql",
+      "user": "",
+      "password": "",
+      "host": "",
+      "port": ""
+    },
+    {
+      "name": "",
+      "schema": "",
+      "engine": "django.db.backends.mysql",
+      "user": "",
+      "password": "",
+      "host": "",
+      "port": ""
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block title %}
+        <title>WaMDaM Controlled Vocabularies</title>
+        {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/reset.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    </head>
+    <body>
+        <div id="top-bar" class="fix-width">
+            <a href="{% url "home" %}" class="brand-name">WaMDaM Controlled Vocabularies</a> 
+            <span class="brand-name">&nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a
+            href="http://wamdam.org/" target="_blank" class="brand-name">WaMDaM.org</a>
+            <span id="login-info">
+                {% if user.is_authenticated %}
+                    <span class="user-name">{{ user.get_full_name|default:user.username }}</span><span class="right-border"></span>
+                    <a href="{% url 'requests_list' %}">Requests</a><span class="right-border"></span>
+                    <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Admin Login</a>
+                {% endif %}
+            </span>
+        </div>
+
+
+        <div id="main" class="fix-width">
+            {% if messages %}
+                <div class="messages-container">
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                            {{ message }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <div id="content">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+
+        <footer class="fix-width">
+            <br><br>
+            <p>
+©2017 WaMDaM | This material is based upon work supported by the National Science Foundation (NSF) under Grants 1135482 (CI-Water) and 1208732 (iUtah). Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the NSF.
+            </p>
+            <br>
+            <p align="center">Last updated Jul, 2017</p>
+        </footer>
+
+    </body>
+</html>
+
