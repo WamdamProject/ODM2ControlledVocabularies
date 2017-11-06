@@ -32,7 +32,9 @@ Contains the step instructions to deploy the apps on a given host. You can chang
 
 ### vars.yml
 
-Is a declaration of variables that may be customized and would be used during the deployment. It's important to note that this is the file you will edit when you want to customize credentials, paths and names. For a better understanding, I encourage you to open it and read the comments for each variable
+Is a declaration of variables that may be customized and would be used during the deployment. It's important to note that this is the file you will edit when you want to customize credentials, paths and names. For a better understanding, I encourage you to open it and read the comments for each variable. **In a high level, you need to create these two using a Gmail account:**
+* SMTP server:  Simple Mail Transfer Protocol (SMTP) server to send emails from the CV server to the moderator and the people who submit new terms. Here we use a gmail smpt server   
+* reCAPTCHA: reCAPTCHA service that protects the CV website from spam and abuse as far as submitting new CV terms    
 
 ### hosts
 
