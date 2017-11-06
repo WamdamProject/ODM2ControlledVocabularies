@@ -1,5 +1,6 @@
 # WaMDaM Controlled Vocabularies
-A Python/Django web application and REST API for managing the WaMDaM Controlled Vocabularies.This repository contains the source code for the master controlled vocabulary registry for the Water Management Data Model (WaMDaM).
+A Python/Django web application and REST API for managing the WaMDaM Controlled Vocabularies. This repository contains the source code for the master controlled vocabulary registry for the Water Management Data Model (WaMDaM).  
+The configuration and deployment of the original repository have been significantly changed to be much simplified and automated using Ansible and Docker. A developer now can configure and deploy the app many times if they wish much easier than before.     
 
 The production Controlled Vocabulary website for WaMDaM (which uses this code) can be accessed at: http://vocabulary.wamdam.org/
 This online moderated registry aims to promote consistent terminology (i.e., Controlled Vocabularies-(CVs)) to describe water system components and their attributes across datasets, models, and users, while still retaining the native terms. Registering your model's native terms against these CVs will allow you to relate, query, and compare all of your water management data within a single database. 
@@ -12,15 +13,15 @@ This online moderated registry aims to promote consistent terminology (i.e., Con
 *	MySQL to host the CV database in the server  
 *	Python/Jango  
 *	Docker to install software containers   
-*	Ansible to deploty the repository from a local machine into the server
-* Simple Mail Transfer Protocol (SMTP) server to send emails from the CV server to the moderator and the people who submit new terms. Here we use a gmail smpt server   
+*	Ansible to deploy the repository from a local machine into the server
+* Simple Mail Transfer Protocol (SMTP) server to send emails from the CV server to the moderator and the people who submit new terms. Here we use a Gmail smpt server   
 *	reCAPTCHA service that protects the CV website from spam and abuse as far as submitting new CV terms  
 * WinSCP which is a secure file transfer between a local Windows computer and a remote computer (server). It also helps navigate the content of the Linux machine in like windows. 
-** PuTTY SSH terminal to connect from Windows to the remomulator, serial console and network file transfer application.
+** PuTTY SSH terminal to connect from Windows to the emulator, serial console and network file transfer application.
 
 
 # Steps to deploy the WaMDaM CV system 
-This section provides step by step instructions on how to deploy the WaMDaM Django based application into an Amazon EC2 instance, using Ansible and Docker without previous knowledge of the app code. The instructions are meant for a programmer with backgroud in Linux, Python, Django, cloud services, GitHub, MySql, and Domain Name System (DNS). However, the deployment and configeration has been simplified and automated to which can be reused many times easily.   
+This section provides step by step instructions on how to deploy the WaMDaM Django based application into an Amazon EC2 instance, using Ansible and Docker without previous knowledge of the app code. The instructions are meant for a programmer with background in Linux, Python, Django, cloud services, GitHub, MySql, and Domain Name System (DNS). However, the deployment and configuration has been simplified and automated to which can be reused many times easily.   
 
 
 ## 1.Create an Amazon Web Services account and an Amazon EC2 Instance  
@@ -28,8 +29,8 @@ First thing you will need is an account on Amazon Web Services (AWS) if you dont
 A Step by step details with screenshots to create an EC2 instance and get to know how to access it are provided here @
 The third below assumes you already have an EC2 instance and you're connected to it.  
 
-## 2. Set up the enviroment on your local machine (install Python and Ansible)  
-To use this instructions you just need some basic knowledged on Linux Commands. Python, Django MySQL and Docker skills are desirable but not mandatory to deploy this application. 
+## 2. Set up the environment on your local machine (install Python and Ansible)  
+To use this instructions you just need some basic knowledge on Linux Commands. Python, Django MySQL and Docker skills are desirable but not mandatory to deploy this application. 
 You are going to deploy this application on remote hosts from a local machine that you have access to. To do so, you need to install some software on this local machine. These instructions are valid for any Debian based distributions (Ubuntu, Linux Mint, etc). Specific instructions for Windows systems are not provided here but these links might be useful:
 * http://python-guide-pt-br.readthedocs.io/en/latest/starting/install/win/
 * https://www.howtogeek.com/197947/how-to-install-python-on-windows/
@@ -61,7 +62,7 @@ Now, clone this repository in your local machine, if not, run this command:
 
 `git clone https://github.com/WamdamProject/WaMDaM_ControlledVocabularies`  
 
-Now that you have the key pair and the cloned project, open a terminal on your local machine and change directory to the ansible folder of the cloned repository. You may want to check the Ansible documentation on the README.md file on this folder, to learn about the parameters you can change to customize the deployment. 
+Now that you have the key pair and the cloned project, open a terminal on your local machine and change directory to the Ansible folder of the cloned repository. You may want to check the Ansible documentation on the README.md file on this folder, to learn about the parameters you can change to customize the deployment. 
 
 https://github.com/WamdamProject/WaMDaM_ControlledVocabularies/tree/master/ansible#ansible-playbooks
 
@@ -174,9 +175,9 @@ For alternative licensing arrangements, contact Adel M. Abdallah or David E. Ros
 ### Sponsors and Credit 
 We adapted the design of this registry from the source code of the ODM2 ControlledVocabularies available on GitHub @ https://github.com/ODM2/ODM2ControlledVocabularies. Thanks to Dr. Jeff Horsburgh and the ODM2 team for promoting #OpenScience by publishing their source code.   
 
-This server of the WaMDaM registry is deployed on Amazon Web Services (AWS) thanks to AWS Educate for their support. The configuration and deployment of the original repository have been significantly changed using Ansible and Docker without previous knowledge of the app code. Now the deployment and configeration has been simplified and automated to which can be reused many times easily.   
-
+This server of the WaMDaM registry is deployed on Amazon Web Services (AWS) thanks to AWS Educate for their support. Thanks to Jose Guerrero, the configuration and deployment of the original repository have been significantly changed to be much simplified and automated using Ansible and Docker. A developer now can reconfigure and deploy the app many times if they wish much easier than before.   
+ 
 WaMDaM and related software development have been developed under funding from several different sources. It was primarily supported by the National Science Foundation <a href="http://www.nsf.gov/awardsearch/showAward?AWD_ID=1135482" target="_blank">CI-Water Project</a> and later from the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1208732" target="_blank">iUtah Project</a>. 
 Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.    
 
-WaMDaM has been developed at and also additionally funded by the Utah Water Research Lab at Utah State University, Logan Utah during the period of August, 2012-2017. Thanks to Dr. Steven Burian at the Unviversity of Utah, Salt Lake City Utah for hosting Adel Abdallah as a visiting scholar 2014-2017.
+WaMDaM has been developed at and also additionally funded by the Utah Water Research Lab at Utah State University, Logan Utah during the period of August, 2012-2017. Thanks to Dr. Steven Burian at the University of Utah, Salt Lake City Utah for hosting Adel Abdallah as a visiting scholar 2014-2017.
