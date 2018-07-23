@@ -149,7 +149,7 @@ Then run:
 
 e. g:
 
-`sudo docker exec wamdam1 python manage.py populate_db /spreadsheets/WaMDaM_CVs_June20.xlsx`
+`sudo docker exec wamdam1 python manage.py populate_db /spreadsheets/WaMDaM_CVs_July2018.xlsx`
 
 Same as the previous step, if everything goes well you should not see any output. After this all the data should be correctly loaded to the server. 
 
