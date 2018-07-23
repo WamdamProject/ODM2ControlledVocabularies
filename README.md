@@ -141,7 +141,7 @@ To initially populate the application with controlled vocabulary terms and their
 First you need to place the spreadsheets on the `spreadsheets` folder as it's set in the `vars.yml` file. This location is shared with the apps containers, that means that any file you place here would be accesible for both apps in the `spreadsheets` directory. 
  
 First use the WinScp to upload the Excel file from Windows int othe Linux machine root dir, then move the Excel file into the spreadsheet dir. Note, permissions, do not allow uploading Excel file directly from Windows into the spreadsheet dir   
- `sudo mv WaMDaM_CVs_July2018.xlsx /spreadsheets`
+ `sudo mv WaMDaM_CVs_July2018.xlsx spreadsheets`
 
 Then run:
 
