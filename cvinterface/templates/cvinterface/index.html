@@ -9,12 +9,16 @@
 
         <div class="column three-columns">
             <p>
-            This online moderated registry aims to promote consistent terminology (i.e., Controlled Vocabularies-(CVs)) to describe water system components and their attributes across datasets, models, and users, while still retaining the native terms. Registering your model's native terms against these CVs will allow you to relate, query, and compare all of your water management data within a single database. Click at the tables below to view the CV terms. Scroll to the bottom for more info on how to the registry works.			
+            This online moderated registry aims to promote consistent terminology (i.e., Controlled Vocabularies-(CVs)) to describe water system components and their attributes across datasets, models, and users, while still retaining the native terms. Registering your model's native terms against these CVs will allow you to relate, query, and compare all of your water management data within a single database.
+			<br>
+			<br>
+			Click on a collection of terms, then click New in the top left to suggest a new term. Once submitted, we will receive an email of the submission and decide to accept and add as a new vocabulary, or reject it in case it is similar to an existing one. Scroll to the bottom for more info on how to the registry works.			
             </p><br>
             <div id="moderators">
                 <div class="moderator">
-                    <span class="data">Adel Abdallah, PhD Candidate</span>
-                    <span class="data secondary">Utah State University</span>
+                    <span class="data">
+				<a href="http://adelmabdallah.com/">Adel Abdallah,</a> PhD Candidate</span> <br>
+                    <span class="data secondary">Utah State University</span><br>
                     <span class="data secondary"><a href="mailto:amabdallah@aggiemail.usu.edu">amabdallah@aggiemail.usu.edu</a></span>
                 </div>
             </div>
@@ -55,7 +59,9 @@ In this registry, you may view and download existing controlled vocabularies for
         </header>
         <div class="column three-columns">
            <p>
-The WaMDaM Wizard (download it from wamdam.org) reads water management datasets that are prepared into the WaMDaM Excel Workbook template. In the “HomePage” tab in the Workbook, the button "Update Controlled Vocabulary" calls this entire repository and updates the "ControlledVocabulary" tab. The “ControlledVocabulary" tab lists the "name" field in each table as a CV term. Then you may use the CV terms through built-in look-up menus to help you register or relate your native terms to the controlled terms. Next, when you use the WaMDaM Wizard to load your prepared input data in the Workbook, the Wizard seamlessly calls this registry and downloads or updates all the content in your local SQLite database. Finally, all the datasets that have native terms registered against these CVs will be related together for querying and comparisons.
+The WaMDaM Wizard (download it from http://docs.wamdam.org/GetStarted/Steps/) reads water management datasets that are prepared into the WaMDaM Excel Workbook template. In the “HomePage” tab in the Workbook, the button "Update Controlled Vocabulary" calls this entire repository and updates the "ControlledVocabulary" tab. The “ControlledVocabulary" tab lists the "name" field in each table as a CV term. Then you may use the CV terms through built-in look-up menus to help you register or relate your native terms to the controlled terms. <br> <br>
+
+Next, when you use the WaMDaM Wizard to load your prepared input data in the Workbook, the Wizard seamlessly calls this registry and downloads or updates all the content in your local SQLite database. Finally, all the datasets that have native terms registered against these CVs will be related together for querying and comparisons.
            </p><br>
            <img src="{% static "images/how-it-works-2.png" %}" alt"add-new-terms" style="display: block; width: 100%;">
         </div>
@@ -69,7 +75,7 @@ The WaMDaM Wizard (download it from wamdam.org) reads water management datasets 
         <div class="column three-columns">
            <p>
 We adapted the design of this registry from the source code of the ODM2 ControlledVocabularies available on GitHub @ <a href="https://github.com/ODM2/ODM2ControlledVocabularies">https://github.com/ODM2/ODM2ControlledVocabularies</a>. Thanks to Dr. Jeff Horsburgh and the ODM2 team for promoting #OpenScience by publishing their source code.
-           </p><br>
+           </p>
            <p>
 This server of the WaMDaM registry is deployed on Amazon Web Services (AWS) thanks to AWS Educate for their support. The adapted source code is available on GitHub @ <a href="https://github.com/WamdamProject/WaMDaM_ControlledVocabularies">https://github.com/WamdamProject/WaMDaM_ControlledVocabularies</a>. The adapted source code include detailed instructions on the changes made to the original repository and how to deploy, access, and populate the repository on Amazon Web Services.
            </p>
