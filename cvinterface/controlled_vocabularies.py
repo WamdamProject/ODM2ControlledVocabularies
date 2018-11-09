@@ -62,11 +62,6 @@ vocabularies = {
         'definition': 'A term for describing the supported physical format of files loaded into WaMDaM as values to attributes(e.g., csv, jpg, NETCDF).',
         'model': ElectronicFileFormat,
     },
-    'categoricalvalue': {
-        'name': CategoricalValue._meta.verbose_name,
-        'definition': 'A term for describing a categorical value that may correspond to numeric values of an attribute. The CategoricalValue represents steps in time (e.g., Winter, Summer, March, April) or space (e.g., categorical levels of reservoir levels (e.g., inactive, conservation, flood)',
-        'model': CategoricalValue,
-    },
     'spatialreference': {
         'name': SpatialReference._meta.verbose_name,
         'definition': 'A term for describing a geographic reference to all the node instances that belong to the same Master Network.',
@@ -82,15 +77,10 @@ vocabularies = {
         'definition': 'A term for describing a built or natural water system component .',
         'model': ObjectType,
     },
-    'dualvaluemeaning': {
-        'name': DualValueMeaning._meta.verbose_name,
-        'definition': 'A Term describing the specific meaning of Boolean data values (True, False)for an attribute.',
-        'model': DualValueMeaning,
-    },
-    'descriptorvalue': {
-        'name': DescriptorValue._meta.verbose_name,
+    'categorical': {
+        'name': Categorical._meta.verbose_name,
         'definition': 'A term for describing descriptive values (characters as numeric or strings) for an attribute. The descriptor values can be shared across attributes of systems components like land use "Grass_Pasture" or irrigation type "Flood", or site code as "10000010"',
-        'model': DescriptorValue,
+        'model': Categorical,
     }
 }
 
@@ -152,12 +142,6 @@ requests = {
         'name': ElectronicFileFormatRequest._meta.verbose_name,
         'model': ElectronicFileFormatRequest,
     },
-    'categoricalvaluerequest': {
-        'vocabulary': 'categoricalvalue',
-        'vocabulary_model': CategoricalValue,
-        'name': CategoricalValueRequest._meta.verbose_name,
-        'model': CategoricalValueRequest,
-    },
     'spatialreferencerequest': {
         'vocabulary': 'spatialreference',
         'vocabulary_model': SpatialReference,
@@ -176,17 +160,11 @@ requests = {
         'name': ObjectTypeRequest._meta.verbose_name,
         'model': ObjectTypeRequest,
     },
-    'dualvaluemeaningrequest': {
-        'vocabulary': 'dualvaluemeaning',
-        'vocabulary_model': DualValueMeaning,
-        'name': DualValueMeaningRequest._meta.verbose_name,
-        'model': DualValueMeaningRequest,
-    },
-    'descriptorvaluerequest': {
-        'vocabulary': 'descriptorvalue',
-        'vocabulary_model': DescriptorValue,
-        'name': DescriptorValueRequest._meta.verbose_name,
-        'model': DescriptorValueRequest,
+    'categoricalrequest': {
+        'vocabulary': 'categorical',
+        'vocabulary_model': Categorical,
+        'name': CategoricalRequest._meta.verbose_name,
+        'model': CategoricalRequest,
     }
 }
 

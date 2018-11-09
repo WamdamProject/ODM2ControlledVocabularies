@@ -9,8 +9,8 @@ from tastypie.utils.mime import build_content_type
 
 from rdfserializer.api import ModelRdfResource
 from models import MethodType, AggregationStatistic, ElevationDatum, SeasonName, Units, ObjectTypology, AttributeName, \
-     AttributeDataType, ElectronicFileFormat, CategoricalValue, SpatialReference, InstanceName, ObjectType, DualValueMeaning, \
-     DescriptorValue
+     AttributeDataType, ElectronicFileFormat, SpatialReference, InstanceName, ObjectType, \
+     Categorical
 
 
 class CSVSerializer(Serializer):
@@ -158,12 +158,6 @@ class ElectronicFileFormatResource(ModelRdfResource):
         queryset = ElectronicFileFormat.objects.filter(ModelRdfResource.vocabulary_filter)
         resource_name = 'electronicfileformat'
 
-class CategoricalValueResource(ModelRdfResource):
-    scheme = 'categoricalValue'
-
-    class Meta(ModelRdfResource.Meta):
-        queryset = CategoricalValue.objects.filter(ModelRdfResource.vocabulary_filter)
-        resource_name = 'categoricalvalue'
 
 class SpatialReferenceResource(ModelRdfResource):
     scheme = 'spatialReference'
@@ -186,19 +180,13 @@ class ObjectTypeResource(ModelRdfResource):
         queryset = ObjectType.objects.filter(ModelRdfResource.vocabulary_filter)
         resource_name = 'objecttype'
 
-class DualValueMeaningResource(ModelRdfResource):
-    scheme = 'dualValueMeaning'
+
+class CategoricalResource(ModelRdfResource):
+    scheme = 'categorical'
 
     class Meta(ModelRdfResource.Meta):
-        queryset = DualValueMeaning.objects.filter(ModelRdfResource.vocabulary_filter)
-        resource_name = 'dualvaluemeaning'
-
-class DescriptorValueResource(ModelRdfResource):
-    scheme = 'descriptorValue'
-
-    class Meta(ModelRdfResource.Meta):
-        queryset = DescriptorValue.objects.filter(ModelRdfResource.vocabulary_filter)
-        resource_name = 'descriptorvalue'
+        queryset = Categorical.objects.filter(ModelRdfResource.vocabulary_filter)
+        resource_name = 'categorical'
 
 v1_api = Api(api_name='v1')
 
@@ -211,10 +199,8 @@ v1_api.register(ObjectTypologyResource())
 v1_api.register(AttributeNameResource())
 v1_api.register(AttributeDataTypeResource())
 v1_api.register(ElectronicFileFormatResource())
-v1_api.register(CategoricalValueResource())
 v1_api.register(SpatialReferenceResource())
 v1_api.register(InstanceNameResource())
 v1_api.register(ObjectTypeResource())
-v1_api.register(DualValueMeaningResource())
-v1_api.register(DescriptorValueResource())
+v1_api.register(CategoricalResource())
 

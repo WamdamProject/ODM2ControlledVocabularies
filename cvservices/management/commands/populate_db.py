@@ -1,8 +1,8 @@
 import xlrd
 from django.db import IntegrityError
 from django.core.management.base import BaseCommand, CommandError
-from cvservices.models import Units, MethodType, ObjectTypology, ElectronicFileFormat, CategoricalValue, \
- SpatialReference, DualValueMeaning, DescriptorValue, AttributeDataType, \
+from cvservices.models import Units, MethodType, ObjectTypology, ElectronicFileFormat, \
+ SpatialReference, Categorical, AttributeDataType, \
  AggregationStatistic, ElevationDatum, SeasonName, ObjectType, InstanceName, AttributeName
 
 models = {
@@ -10,10 +10,8 @@ models = {
     'MethodType': MethodType,
     'ObjectTypology': ObjectTypology,
     'ElectronicFileFormat': ElectronicFileFormat,
-    'CategoricalValue': CategoricalValue,
     'SpatialReference': SpatialReference,
-    'DualValueMeaning': DualValueMeaning,
-    'DescriptorValue': DescriptorValue,
+    'Categorical': Categorical,
     'AttributeDataType': AttributeDataType,
     'AggregationStatistic': AggregationStatistic,
     'ElevationDatum': ElevationDatum,
@@ -59,9 +57,9 @@ class Command(BaseCommand):
                     continue
 
                 for col in range(sheet.ncols):
-                    if isinstance(sheet.cell(row,col).value, float):
-                        col_values.append(int(round(sheet.cell(row,col).value)))
-                    else:
+                    #if isinstance(sheet.cell(row,col).value, float):
+                    #    col_values.append(int(round(sheet.cell(row,col).value)))
+                    #else:
                         col_values.append(sheet.cell(row,col).value)
 
                 kwargs = dict(zip(col_names, col_values))

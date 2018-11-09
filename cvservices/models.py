@@ -137,6 +137,13 @@ class Units(ControlledVocabulary):
         help_text='Please enter the Abbreviation of the unit (e.g., "m" for meter)')
     unit_system = models.CharField(max_length=255, blank=True, db_column='UnitsSystem',
         help_text='English or International System of Units')
+    # conversion_factor = models.FloatField(null=True, blank=True, 
+    #     db_column='ConversionFactor', default=0)
+    linear_factor =  models.TextField(null=True,
+        db_column='LinearFactor')
+    constant_factor =  models.TextField(null=True,
+        db_column='ConstantFactor')
+
     class Meta:
         db_table = 'unitscv'
         verbose_name = 'Units'
@@ -148,6 +155,10 @@ class UnitsRequest(ControlledVocabularyRequest):
         help_text='Please enter the Abbreviation of the unit (e.g., "m" for meter)')
     unit_system = models.CharField(max_length=255, blank=True, db_column='UnitsSystem',
         help_text='English or International System of Units')
+    linear_factor =  models.TextField(null=True,
+        db_column='LinearFactor')
+    constant_factor =  models.TextField(null=True,
+        db_column='ConstantFactor')
     class Meta:
         db_table = 'unitscvrequests'
         verbose_name = 'Units Request'
@@ -201,18 +212,6 @@ class ElectronicFileFormatRequest(ControlledVocabularyRequest):
         verbose_name = 'Electronic File Format Request'
 
 
-class CategoricalValue(ControlledVocabulary):
-    class Meta:
-        db_table = 'categoricalvaluecv'
-        verbose_name = 'Categorical Value'
-
-
-class CategoricalValueRequest(ControlledVocabularyRequest):
-    class Meta:
-        db_table = 'categoricalvaluecvrequests'
-        verbose_name = 'Categorical Value Request'
-
-
 class SpatialReference(ControlledVocabulary):
     class Meta:
         db_table = 'spatialreferencecv'
@@ -251,39 +250,19 @@ class ObjectTypeRequest(ControlledVocabularyRequest):
         verbose_name = 'Object Type Request'
 
 
-class DualValueMeaning(ControlledVocabulary):
-    boolean_value = models.BooleanField(default=False,
-    help_text='Please check this box if the Boolean Value represent "1" or "True". ' \
-    'Leave it unchecked if the Boolean value represent "0" or "False"')
-    class Meta:
-        db_table = 'dualvaluemeaningcv'
-        verbose_name = 'Dual Value Meaning'
-
-
-class DualValueMeaningRequest(ControlledVocabularyRequest):
-    boolean_value = models.BooleanField(default=False,
-    help_text='Please check this box if the Boolean Value represent "1" or "True". ' \
-    'Leave it unchecked if the Boolean value represent "0" or "False"')
-    class Meta:
-        db_table = 'dualvaluemeaningcvrequests'
-        verbose_name = 'Dual Value Meaning Request'
-
-
-class DescriptorValue(ControlledVocabulary):
+class Categorical(ControlledVocabulary):
     attribute_name = models.CharField(max_length=255, null=False, blank=True,
         help_text="Please select a controlled Attribute Name that this value belongs to. " \
         "If the Attribute Name does not exist, please add it in the Attribute Name table")
     class Meta:
-        db_table = 'descriptorvaluecv'
-        verbose_name = 'Descriptor Value'
+        db_table = 'categoricalcv'
+        verbose_name = 'Categorical'
 
 
-class DescriptorValueRequest(ControlledVocabularyRequest):
+class CategoricalRequest(ControlledVocabularyRequest):
     attribute_name = models.CharField(max_length=255, null=False, blank=True,
         help_text="Please select a controlled Attribute Name that this value belongs to. " \
         "If the Attribute Name does not exist, please add it in the Attribute Name table")
     class Meta:
-        db_table = 'descriptorvaluecvrequests'
-        verbose_name = 'Descriptor Value Request'
-
-
+        db_table = 'categoricalcvrequests'
+        verbose_name = 'Categorical Request'
