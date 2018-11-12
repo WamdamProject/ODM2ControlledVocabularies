@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/109537040.svg)](https://zenodo.org/badge/latestdoi/109537040)
+
 # WaMDaM Controlled Vocabularies
 A Python/Django web application and REST API for managing the WaMDaM Controlled Vocabularies. This repository contains the source code for the master controlled vocabulary registry for the Water Management Data Model (WaMDaM).  
 The configuration and deployment of the original repository have been significantly changed to be much simplified and automated using Ansible and Docker. A developer now can configure and deploy the app many times if they wish much easier than before.     
