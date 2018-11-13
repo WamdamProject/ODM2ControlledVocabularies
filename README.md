@@ -64,6 +64,21 @@ docker exec wamdam1 python manage.py reset_d
 docker exec wamdam1 python manage.py populate_db /spreadsheets/WaMDaM_CVs_Nov2018.xlsx
 ```
 
+
+**G. Uninstall and redeploy the app   
+First stop the docker containers and remove after that  
+
+```
+docker stop wamdam1
+docker stop wamdam1_db
+docker rm wamdam1
+docker rm wamdam1_db
+```
+Then deploy the app  
+ansible-playbook deploy.yml  
+
+
+
 ## 2. Set up the environment on your local machine (install Python and Ansible)    
 To use this instructions you just need some basic knowledge on Linux Commands. Python, Django MySQL and Docker skills are desirable but not mandatory to deploy this application. 
 You are going to deploy this application on remote hosts from a local machine that you have access to. To do so, you need to install some software on this local machine. These instructions are valid for any Debian based distributions (Ubuntu, Linux Mint, etc). Specific instructions for Windows systems are not provided here but these links might be useful:
