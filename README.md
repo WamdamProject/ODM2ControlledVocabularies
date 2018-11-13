@@ -31,7 +31,40 @@ First thing you will need is an account on Amazon Web Services (AWS) if you dont
 A Step by step details with screenshots to create an EC2 instance and get to know how to access it are provided here @
 The third below assumes you already have an EC2 instance and you're connected to it.  
 
-## 2. Set up the environment on your local machine (install Python and Ansible)  
+
+## Option 1: Deploy it from the AWS Server  
+ 
+**a. Install Basic packages/updates on the server**   
+```
+apt-get update
+apt-get upgrade
+apt install python-pip
+pip install ansible
+```
+**b. Clone the repo**   
+```
+git clone https://WamdamProject/WaMDaM_ControlledVocabularies.git   
+```
+
+**C. Run ansible playbooks**   
+```cd WaMDaM_ControlledVocabularies/ansible/```  
+
+```ansible-playbook deploy.yml```  
+
+*** D. Make sure three docker containers are up (wamdam1,wamdam1_db) **  
+```
+docker ps 
+```
+
+**F. Populate the DB**  
+Use WinSCP to transfer the Excel file from your machien to the AWS server.  
+```
+sudo mv WaMDaM_CVs_Nov2018.xlsx spreadsheets
+docker exec wamdam1 python manage.py reset_d
+docker exec wamdam1 python manage.py populate_db /spreadsheets/WaMDaM_CVs_Nov2018.xlsx
+```
+
+## 2. Set up the environment on your local machine (install Python and Ansible)    
 To use this instructions you just need some basic knowledge on Linux Commands. Python, Django MySQL and Docker skills are desirable but not mandatory to deploy this application. 
 You are going to deploy this application on remote hosts from a local machine that you have access to. To do so, you need to install some software on this local machine. These instructions are valid for any Debian based distributions (Ubuntu, Linux Mint, etc). Specific instructions for Windows systems are not provided here but these links might be useful:
 * http://python-guide-pt-br.readthedocs.io/en/latest/starting/install/win/
