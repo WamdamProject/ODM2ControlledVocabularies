@@ -1,12 +1,13 @@
 import xlrd
 from django.db import IntegrityError
 from django.core.management.base import BaseCommand, CommandError
-from cvservices.models import Units, MethodType, ObjectTypology, ElectronicFileFormat, \
+from cvservices.models import Units, MethodType, ResourceType,ObjectTypology, ElectronicFileFormat, \
  SpatialReference, Categorical, AttributeDataType, \
  AggregationStatistic, ElevationDatum, SeasonName, ObjectType, InstanceName, AttributeName
 
 models = {
     'Units': Units,
+    'ResourceType': ResourceType,
     'MethodType': MethodType,
     'ObjectTypology': ObjectTypology,
     'ElectronicFileFormat': ElectronicFileFormat,

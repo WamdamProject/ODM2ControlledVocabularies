@@ -8,7 +8,7 @@ from tastypie.serializers import Serializer
 from tastypie.utils.mime import build_content_type
 
 from rdfserializer.api import ModelRdfResource
-from models import MethodType, AggregationStatistic, ElevationDatum, SeasonName, Units, ObjectTypology, AttributeName, \
+from models import MethodType, ResourceType, AggregationStatistic, ElevationDatum, SeasonName, Units, ObjectTypology, AttributeName, \
      AttributeDataType, ElectronicFileFormat, SpatialReference, InstanceName, ObjectType, \
      Categorical
 
@@ -109,6 +109,14 @@ class MethodTypeResource(ModelRdfResource):
         queryset = MethodType.objects.filter(ModelRdfResource.vocabulary_filter)
         resource_name = 'methodtype'
 
+class ResourceTypeResource(ModelRdfResource):
+    scheme = 'resourceType'
+
+    class Meta(ModelRdfResource.Meta):
+        queryset = ResourceType.objects.filter(ModelRdfResource.vocabulary_filter)
+        resource_name = 'resourcetype'          
+          
+          
 class AggregationStatisticResource(ModelRdfResource):
     scheme = 'aggregationStatistic'
 
@@ -191,6 +199,7 @@ class CategoricalResource(ModelRdfResource):
 v1_api = Api(api_name='v1')
 
 v1_api.register(MethodTypeResource())
+v1_api.register(ResourceTypeResource())
 v1_api.register(AggregationStatisticResource())
 v1_api.register(ElevationDatumResource())
 v1_api.register(SeasonNameResource())

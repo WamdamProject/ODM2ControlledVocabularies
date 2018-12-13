@@ -99,12 +99,18 @@ def forwards(apps, schema_editor):
                uri='http://vocabulary.wamdam.org/elevationdatum'
                ),
         scheme(name='methodType', title='WAMDAM1 MethodType Controlled Vocabulary', creator='WAMDAM Working Group',
-               description='A vocabulary for describing types of Methods associated with creating observations. '
-                           'MethodTypes correspond with ActionTypes in WAMDAM1. An Action must be performed using '
-                           'an appropriate MethodType - e.g., a specimen collection Action should be associated '
-                           'with a specimen collection method.',
+               description='A vocabulary for describing types of Methods associated with creating observations.',    
                uri='http://vocabulary.wamdam.org/methodtype'
                ),
+        
+        scheme(name='resourceType', title='WAMDAM1 ResourceType Controlled Vocabulary', creator='WAMDAM Working Group',
+               description='A vocabulary for describing types of water resources systems models. '
+                           'Example resource types are WEAP, RiverWare, EPANET',
+               uri='http://vocabulary.wamdam.org/resourcetype'
+               ),
+        
+             
+     
         scheme(name='units', title='WAMDAM1 Units Controlled Vocabulary', creator='WAMDAM1 Working Group',
                description='A vocabulary for describing the type of units in which a Result is expressed.',
                uri='http://vocabulary.wamdam.org/units'
@@ -140,10 +146,7 @@ def forwards(apps, schema_editor):
         scheme(name='objectTypes', title='WAMDAM1 Object Types Controlled Vocabulary', creator='WAMDAM1 Working Group',
                description='Controlled vocabulary for Object types like Reservoir which maps out to native object types like dam, reservoir, and waterbody.',
                uri='http://vocabulary.wamdam.org/objecttypes'
-               ),
-        scheme(name='booleanValueMeaning', title='WAMDAM1 Boolean Value Meaning Controlled Vocabulary', creator='WAMDAM1 Working Group',
-               description='This table provides the controlled meaning of boolean data values.',
-               uri='http://vocabulary.wamdam.org/booleanvaluemeaning'
+
                ),
         scheme(name='textControlledValue', title='WAMDAM1 Text Controlled Value Controlled Vocabulary', creator='WAMDAM1 Working Group',
                description='Controlled text values that can be shared across attributes of instances like Land use “Grass_Pasture” or irrigation type "Flood”, states "Utah".',

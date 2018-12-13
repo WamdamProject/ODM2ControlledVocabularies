@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from cvservices.models import Units, MethodType, ObjectTypology, ElectronicFileFormat, \
+from cvservices.models import Units, MethodType, ResourceType, ObjectTypology, ElectronicFileFormat, \
  SpatialReference, Categorical, AttributeDataType, \
  AggregationStatistic, ElevationDatum, SeasonName, ObjectType, InstanceName, AttributeName
 
@@ -15,6 +15,9 @@ class Command(BaseCommand):
             object.delete()
 
         for object in MethodType.objects.all():
+            object.delete()
+  
+        for object in ResourceType.objects.all():
             object.delete()
 
         for object in ObjectTypology.objects.all():

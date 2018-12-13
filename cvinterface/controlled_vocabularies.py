@@ -22,6 +22,14 @@ vocabularies = {
         'definition': 'A term for describing types of Methods associated with recording or generating data values to attributes. Example method types are like "expert opinion", "field procedure", "model simulation".',
         'model': MethodType,
     },
+    
+    'resourcetype': {
+    'name': ResourceType._meta.verbose_name,
+    'definition': 'A term for describing types of systems models. Example resource types are WEAP, RiverWare, EPANET',
+    'model': ResourceType,
+    },
+    
+    
     'aggregationstatistic': {
         'name': AggregationStatistic._meta.verbose_name,
         'definition': 'A term for describing the statistical action used to calculate over recorded time series values within a time interval. For example, 100 cfs of delivery target to a demand site is a "cumulative" aggregation statistic calculated over a time interval like a month.',
@@ -94,6 +102,13 @@ requests = {
         'name': MethodTypeRequest._meta.verbose_name,
         'model': MethodTypeRequest,
     },
+   'resourcetyperequest': {
+    'vocabulary': 'resourcetype',
+    'vocabulary_model': ResourceType,
+    'name': ResourceTypeRequest._meta.verbose_name,
+    'model': ResourceTypeRequest, 
+     },
+      
     'aggregationstatisticrequest': {
         'vocabulary': 'aggregationstatistic',
         'vocabulary_model': AggregationStatistic,

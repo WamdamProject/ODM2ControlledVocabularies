@@ -95,6 +95,22 @@ class MethodTypeRequest(ControlledVocabularyRequest):
         db_table = 'methodtypecvrequests'
         verbose_name = 'Method Type Request'
 
+        
+        
+class ResourceType(ControlledVocabulary):
+    class Meta:
+        db_table = 'resourcetypecv'
+        verbose_name = 'Resource Type'
+        ordering = ["name"]
+
+
+class ResourceTypeRequest(ControlledVocabularyRequest):
+    class Meta:
+        db_table = 'resourcetypecvrequests'
+        verbose_name = 'Resource Type Request'        
+        
+        
+        
 
 class AggregationStatistic(ControlledVocabulary):
     class Meta:
