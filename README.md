@@ -36,10 +36,10 @@ The third below assumes you already have an EC2 instance and you're connected to
  
 **a. Install Basic packages/updates on the server**   
 ```
-apt-get update
-apt-get upgrade
-apt install python-pip
-pip install ansible
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install python2.7 python-pip
+sudo pip install ansible
 ```
 **b. Clone the repo**   
 ```
