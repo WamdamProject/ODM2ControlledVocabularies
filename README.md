@@ -59,9 +59,9 @@ docker ps
 **F. Populate the DB**  
 Use WinSCP to transfer the Excel file from your machien to the AWS server.  
 ```
-sudo mv WaMDaM_CVs_Nov2018.xlsx spreadsheets
+sudo mv WaMDaM_CVs.xlsx spreadsheets
 docker exec wamdam1 python manage.py reset_d
-docker exec wamdam1 python manage.py populate_db /spreadsheets/WaMDaM_CVs_Nov2018.xlsx
+docker exec wamdam1 python manage.py populate_db /spreadsheets/WaMDaM_CVs.xlsx
 ```
 
 
