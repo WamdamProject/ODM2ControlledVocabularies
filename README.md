@@ -161,7 +161,17 @@ To restore a dump into the container database use:
 
 You can find the <root-passwd> variable on the `vars.yml` file, in the `mysql_root_passwd` variable
 
+### logs
+`du -h /var/log/`
 
+`cd /var/`
+
+# clean logs
+  sudo find /var/log -type f -name "*.gz" -delete   
+
+# size of stuff on disk
+  du -h | sort -h 
+  
 ### How to uninstall the application   
 If you want to uninstall the WaMDaM application run the following commands from the EC2 instance, to remove the nginx virtualhost
 
